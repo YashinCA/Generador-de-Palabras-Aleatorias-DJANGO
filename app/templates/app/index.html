@@ -1,0 +1,31 @@
+{% extends "app/base.html" %}
+{% block titulo %}Random Word Generator{% endblock %}
+{% block estilo %}
+
+<style>
+    .contenedor{
+        border: 3px solid black
+    }
+    h1{
+        text-align: center;
+        font-size: 50px;
+    }
+</style>
+{% endblock  %}
+{% block contenido %}
+<div class='row'>
+    <div class="col-6 container contenedor mt-5">
+        <h1>Tu Palabra Aleatoria:</h1>
+        <h1>{{palabra}}</h1>
+        <h1>Contador:</h1>
+        <h1>{{contador}}</h1>
+    </div>
+</div>
+<div class='container d-flex mt-3 justify-content-center align-content-center'>
+    <form class="d-inline-block m-1" action="" method="post">
+    {% csrf_token %}
+    <button class='btn btn-primary' type='submit'>Generate</button>
+    </form>
+    <a class="btn btn-danger d-inline-block m-1" href="random_word/reset">Reset</a>
+</div>
+{% endblock  %}
